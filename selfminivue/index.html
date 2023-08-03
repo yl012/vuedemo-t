@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../reactive/reactive.js"></script>
+    <script src="../rendertest/render.js"></script>
+    <!-- <script src="./main.js" type="module"></script> -->
+    <script src="./createAPP.js"></script>
+    <script>
+        const App = {
+            data: reactiveProxy({
+                counter: 0,
+            }),
+            render() {
+                return h("div", {
+                    class: "box"
+                }, [h("h2", null, `当前计数:${this.data.counter}`), h("button", {
+                    "onClick": () => {
+                        this.data.counter++;
+                        // console.log(this);
+                    }
+                }, "请点击加1")])
+            }
+        };
+        const app = createApp(App);
+        app.mount("#app");
+    </script>
+</body>
+
+</html>

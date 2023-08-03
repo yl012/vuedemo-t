@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        你好
+        <p>我是p <span>我是span</span></p>
+    </div>
+    <button onclick="clickBtn()">++</button>
+    <button onclick="btnClick()" ondblclick="btndbClick()">单击/双击按钮2</button>
+    <script>
+        let counter = 0;
+
+        function clickBtn() {
+            counter++;
+            console.log(counter);
+
+        }
+
+        function btnClick(e) {
+            console.log("单击==")
+        }
+
+        function btndbClick(e) {
+            console.log("双击---");
+        }
+        let app = document.querySelector("#app");
+        app.textContent = `hello${counter}`
+        console.log(app.innerHTML);
+        console.log(app.textContent);
+    </script>
+</body>
+
+</html>
